@@ -1,20 +1,22 @@
-# Python coding style 規範
-目錄
- 1. coding style
- 2. function 與迴圈複雜度
- 3. 檢驗工具
+# Python coding style rules
+## 目錄
+ #### 1. coding style
+ #### 2. function 與迴圈複雜度
+ #### 3. 測試工具
 ___
 ## coding style
 網頁版：https://www.openfoundry.org/tw/tech-column/9179-python-
 
-#### 以下整理一些我覺得比較重要的規則, 有其他建議要提出來歐
+#### 以下整理一些我覺得比較重要的規則, 如果大家有建議也歡迎提出討論, coding style這件事只要大家有共識就行了, 沒有說一定要怎樣
 
 **1. 基本語法**
-- 縮排使用四個空白格,不要用 tab（各個 IDE 都可以設定）
-- 每一行長度最多 79 個字元之內
+- 縮排使用四個空白格, 不要用 tab（各個 IDE 都可以設定）
+- 每一行長度最多 100 個字元
 - class 內的 method 間以一個空白行分隔  
-
-- 以下情況避免使用額外空白<br />  
+- class 間以兩個空白行分隔
+- import 應該分成不同行
+- 以下情況避免使用額外空白 
+<!-- end of list -->
 1. 緊連在圓括號、方括號、大括號之內
 ```python
 #good
@@ -204,11 +206,28 @@ for (i, j) in enumerate(pnl_list):
 
 ___
 ## function 與迴圈複雜度
-- 這部分先跳過, 等 coding style 熟習後再來規範
+- 這部分先跳過, 等 coding style 熟習後再來討論
 
 ___
-## 檢驗工具
-- 可以使用 pylint 檢驗 coding style  https://www.pylint.org/
+## 測試工具
+#### 透過測試工具可以快速了解哪些地方的 coding style 需要修改
+- 可以使用 pylint 檢驗 coding style  https://www.pylint.org/
 - 或使用 coala https://coala.io/#/coalaonline
 
 #### pylint 報表
+- 會顯示 py 檔中有多少 module, class, method 跟 function, 基本上 code 要包成這四種之一
+- 會顯示註解數, 沒有寫註解要補齊
+
+![image](https://github.com/Shawnroom/quickbid/blob/master/table1.png)
+
+- 錯誤的來源有四種: C, R, W, E, 目前先關心 C, W 類別的錯誤, R 能改就改, E 目前就算了
+- 下面的表會更詳細列出錯誤的具體事項, 如果有包含第一部分的規範就改吧~ (ex:bad-whitespace)
+
+![image](https://github.com/Shawnroom/quickbid/blob/master/table2.png)
+
+- 也會有詳細的表列出在哪一行, 哪個地方沒寫好, 可以更快的找到並修改
+
+![image](https://github.com/Shawnroom/quickbid/blob/master/table3.png)
+
+#### 目前我的想法是有 python code commit 上來就用 pylint 測試, 如果有第一部分 style 上的錯誤就要再修改
+ex: bad-whitespace, 缺少註解, trailing-space, line-too-long 等等
