@@ -58,7 +58,7 @@ def complex(real, imag = 0.0):
     return magic(r = real, i = imag)
 ```
 
-- 使用空白的時機
+- 以下情況必須使用空白
 1. 在二元運算子**前後**加上一個空白：賦值（=）、增量賦值（+=, -= 之類）、比較（==, ＜, ＞, !=, ＜＞, ＜=, ＞=, in, not in, is, is not）、邏輯（and, or, not）
 ```python
 #good
