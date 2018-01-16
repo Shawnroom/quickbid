@@ -1,21 +1,21 @@
 # Python coding style 規範
 目錄
  1. coding style
- 2. coding 複雜度規範
+ 2. function 與迴圈複雜度
  3. 檢驗工具
 ___
 ## coding style
-好讀網頁版：https://www.openfoundry.org/tw/tech-column/9179-python-
+網頁版：https://www.openfoundry.org/tw/tech-column/9179-python-
 
-### 快速整理版
+### 以下整理一些我覺得比較重要的規則, 有其他想法歡迎一起討論
 
 **1. 基本語法**
-- 縮排使用四個空白格,不要用tab（各個IDE都可以設定）
+- 縮排使用四個空白格,不要用 tab（各個 IDE 都可以設定）
 - 每一行長度最多 79 個字元之內
 - class 內的 method 間以一個空白行分隔  
 
 - 以下情況避免使用額外空白<br />  
-1. 緊連在圓括號、方括號、大括號之內<br />   
+1. 緊連在圓括號、方括號、大括號之內
 ```python
 #good
 spam(ham[1], {eggs: 2})
@@ -87,7 +87,7 @@ spam(ham[1],{eggs: 2})
 ```
 
 **2. 註解**
-- 有function, class, method 就要有文件字串docstring
+- 有 function, class, method 就要有文件字串 docstring
 - 永遠將更新註解列為優先事項
 
 **3. 命名慣例**
@@ -182,4 +182,30 @@ if greeting:
 if greeting == True:
 if greeting is True:
 ```
+- 迴圈內不重要的疊代變數以_命名,若是有意義的則要額外命名
+```python
+#good
+for _ in range(10):
+    print('Hello World')
+    _ += 1
 
+for (idx, value) in enumerate(pnl_list):
+    print(idx, value)
+```
+```python
+#bad
+for n in range(10):
+    print('Hello World')
+    n += 1
+
+for (i, j) in enumerate(pnl_list):
+    print(i, j)
+```
+
+___
+## function 與迴圈複雜度
+- 這部分先跳過, 等 coding style 熟習後再來規範
+
+___
+## 檢驗工具
+- 推薦使用 pylint 檢驗 coding style
