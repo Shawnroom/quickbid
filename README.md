@@ -208,4 +208,7 @@ ___
 
 ___
 ## 檢驗工具
-- 推薦使用 pylint 檢驗 coding style
+- 可以使用 pylint 檢驗 coding style  https://www.pylint.org/
+- 或使用 coala https://coala.io/#/coalaonline
+
+#### pylint 報表
